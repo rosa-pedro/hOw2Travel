@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { TouchableWithoutFeedback } from 'react-native';
-import {Autocomplete, AutocompleteItem, Button, Icon} from "@ui-kitten/components";
+import {Autocomplete, AutocompleteItem, Icon } from "@ui-kitten/components";
 import styles from './styles';
 import transportation from "../../assets/data/transportation";
 import CompassIcon from "../CompassIcon";
@@ -14,8 +14,8 @@ const SearchBar = () => {
     const [data, setData] = useState(transportation);
 
     const onSelect = (index) => {
-        setValue(transportation[index].title);
-        console.warn(`Pressed ${transportation[index].title}`);
+        setValue(data[index].title);
+        console.warn(`Pressed ${data[index].title}`);
     };
 
     const onChangeText = (query) => {
