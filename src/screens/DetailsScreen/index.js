@@ -5,6 +5,7 @@ import {Button, Divider, Layout, Text, TopNavigation, TopNavigationAction} from 
 import LoginButton from "../../components/LoginButton";
 import {View} from 'react-native';
 import BackIcon from "../../components/BackIcon";
+import {SafeAreaView} from "react-native-safe-area-context";
 
 const DetailsScreen = ({navigation}) => {
 
@@ -17,14 +18,14 @@ const DetailsScreen = ({navigation}) => {
     );
 
     return (
-        <View style={styles.screen}>
+        <SafeAreaView style={styles.screen}>
             <TopNavigation title={'MyApp'} alignment={'center'} accessoryLeft={BackAction}/>
             <Divider/>
             <Layout style={styles.container}>
                 <Text category={'h1'}>DETAILS</Text>
                 <LoginButton/>
             </Layout>
-        </View>
+        </SafeAreaView>
     );
 };
 

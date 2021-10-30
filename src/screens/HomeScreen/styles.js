@@ -6,8 +6,10 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        justifyContent: 'center',
+        paddingVertical: '5%',
+        justifyContent: 'space-between',
         alignItems: 'center',
+        /*backgroundColor: 'red'*/
     },
 });
 
