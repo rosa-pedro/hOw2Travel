@@ -1,11 +1,14 @@
 import React from 'react';
 import styles from './styles';
 import Card from '../../components/Card';
-import {Button, Divider, Icon, Layout, Text, TopNavigation} from "@ui-kitten/components";
+import {Button, Divider, Icon, Layout, Text, TopNavigation, TopNavigationAction} from "@ui-kitten/components";
 import LoginButton from "../../components/LoginButton";
 import { View } from 'react-native';
 import {SafeAreaView} from "react-native-safe-area-context";
 import SearchBar from "../../components/SearchBar";
+import TransportationTypesRow from "../../components/TransportationTypesRow";
+import FavoriteTransportationList from "../../components/FavouriteTransportationList";
+import MenuIcon from "../../components/Icons/MenuIcon";
 
 const HomeScreen = ({navigation}) => {
 
@@ -13,25 +16,31 @@ const HomeScreen = ({navigation}) => {
         navigation.navigate('Details');
     };
 
-    const carIcon = (props) => (
-        <Icon {...props} name={'car-outline'} />
+    const MenuAction = () => (
+        <TopNavigationAction icon={MenuIcon} onPress={() => {navigation.toggleDrawer()}}/>
     );
+
 
     return(
         <SafeAreaView style={styles.screen}>
-            <TopNavigation title={'hOw2Travel'} alignment={'center'} />
-            {/*<Divider />*/}
+            <TopNavigation title={'hOw2Travel'} alignment={'center'} accessoryLeft={MenuAction}/>
+            <Divider />
             <Layout style={styles.container}>
-                <SearchBar />
 
-                <View>
-
-                    <Button accessoryLeft={carIcon}/>
-
+                <View style={styles.searchBarContainer}>
+                    <SearchBar />
                 </View>
 
-                <Text category={'h1'}>hOw2Travel</Text>
-                <Button onPress={navigateDetails} >OPEN DETAILS</Button>
+                <View style={styles.transportationTypesRowContainer}>
+                    <TransportationTypesRow />
+                </View>
+
+                <View style={styles.favouriteTransportationListContainer}>
+                    <FavoriteTransportationList />
+                </View>
+
+                {/*<Text category={'h1'}>hOw2Travel</Text>
+                <Button onPress={navigateDetails} >OPEN DETAILS</Button>*/}
             </Layout>
         </SafeAreaView>
     );

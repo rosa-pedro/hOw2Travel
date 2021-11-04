@@ -3,8 +3,8 @@ import { TouchableWithoutFeedback } from 'react-native';
 import {Autocomplete, AutocompleteItem, Icon } from "@ui-kitten/components";
 import styles from './styles';
 import transportation from "../../assets/data/transportation";
-import CompassIcon from "../CompassIcon";
-import SearchIcon from '../SearchIcon';
+import CompassIcon from "../Icons/CompassIcon";
+import SearchIcon from '../Icons/SearchIcon';
 
 const filter = (item, query) => item.title.toLowerCase().includes(query.toLowerCase());
 

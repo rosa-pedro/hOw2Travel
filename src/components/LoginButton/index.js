@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button} from '@ui-kitten/components';
-import FacebookIcon from "../FacebookIcon";
+import FacebookIcon from "../Icons/FacebookIcon";
 
 const LoginButton = () => {
     return (
