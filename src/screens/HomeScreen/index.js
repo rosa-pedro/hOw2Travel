@@ -7,7 +7,7 @@ import { View } from 'react-native';
 import {SafeAreaView} from "react-native-safe-area-context";
 import SearchBar from "../../components/SearchBar";
 import TransportationTypesRow from "../../components/TransportationTypesRow";
-import FavoriteTransportationList from "../../components/FavouriteTransportationList";
+import FavouriteTransportationList from "../../components/FavouriteTransportationList";
 import MenuIcon from "../../components/Icons/MenuIcon";
 
 const HomeScreen = ({navigation}) => {
@@ -36,7 +36,7 @@ const HomeScreen = ({navigation}) => {
                 </View>
 
                 <View style={styles.favouriteTransportationListContainer}>
-                    <FavoriteTransportationList />
+                    <FavouriteTransportationList />
                 </View>
 
                 {/*<Text category={'h1'}>hOw2Travel</Text>
