@@ -14,6 +14,7 @@ const MenuDrawerContent = ({navigation, state}) => {
         >
             <DrawerItem title={'Home'} />
             <DrawerItem title={'Details'} />
+            <DrawerItem title={'TransportList'} />
         </Drawer>
     );
 };

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { TouchableWithoutFeedback } from 'react-native';
 import {Autocomplete, AutocompleteItem, Icon } from "@ui-kitten/components";
 import styles from './styles';
-import transportation from "../../assets/data/transportation";
+import {transportation} from "../../assets/data/transportation";
 import CompassIcon from "../Icons/CompassIcon";
 import SearchIcon from '../Icons/SearchIcon';
 
