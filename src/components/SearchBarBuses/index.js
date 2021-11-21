@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { TouchableWithoutFeedback } from 'react-native';
 import {Autocomplete, AutocompleteItem, Icon } from "@ui-kitten/components";
 import styles from './styles';
-import {transportation} from "../../assets/data/transportation";
+import {busList} from "../../assets/data/transportation";
 import CompassIcon from "../CompassIcon";
 import SearchIcon from '../SearchIcon';
 
@@ -11,7 +11,7 @@ const filter = (item, query) => item.title.toLowerCase().includes(query.toLowerC
 const SearchBar = () => {
 
     const [value, setValue] = useState(null);
-    const [data, setData] = useState(transportation);
+    const [data, setData] = useState(busList);
 
     const onSelect = (index) => {
         setValue(data[index].title);
@@ -20,12 +20,12 @@ const SearchBar = () => {
 
     const onChangeText = (query) => {
         setValue(query);
-        setData(transportation.filter(item => filter(item, query)));
+        setData(busList.filter(item => filter(item, query)));
     };
 
     const clearInput = () => {
         setValue('');
-        setData(transportation);
+        setData(busList);
     };
 
     const renderOption = (item, index) => (
@@ -44,7 +44,7 @@ const SearchBar = () => {
 
     return(
         <Autocomplete
-            placeholder={'Transportation...'}
+            placeholder={'Bus...'}
             value={value}
             onChangeText={onChangeText}
             onSelect={onSelect}
