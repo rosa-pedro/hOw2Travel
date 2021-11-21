@@ -4,7 +4,7 @@ import Card from '../../components/Card';
 import {Button, Divider, Layout, Text, TopNavigation, TopNavigationAction} from "@ui-kitten/components";
 import LoginButton from "../../components/LoginButton";
 import {View, Image } from 'react-native';
-import BackIcon from "../../components/BackIcon";
+import BackIcon from "../../components/Icons/BackIcon";
 import {SafeAreaView} from "react-native-safe-area-context";
 
 const DetailsScreen = ({navigation}) => {
