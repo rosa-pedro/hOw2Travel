@@ -6,6 +6,7 @@ import {default as theme} from './src/assets/theme';
 import {EvaIconsPack} from '@ui-kitten/eva-icons';
 import { MaterialIconsPack } from './src/assets/Icons/material-icons';
 import AppNavigator from "./src/navigation/AppNavigator";
+import SignInScreen from "./src/screens/SignInScreen";
 
 const App = () => {
   return (
