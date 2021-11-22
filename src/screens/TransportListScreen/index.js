@@ -8,18 +8,26 @@ import {busData} from '../../assets/data/transportation'
 import BusIcon from "../../components/Icons/BusIcon";
 
 import Svg from 'react-native-svg';
-/*const data = new Array(BusData).fill({
-    title: this.title,
-    hour: this.hour,
-});*/
+
+const TransportListScreen = ({navigation, route}) => {
 
 
-
-const TransportListScreen = ({navigation}) => {
+    const { title } = route.params;
 
     console.log(busData)
+    // console.warn(`this is: ${title}`)
 
-
+    const getData = () => {
+        if (title==='bus'){
+            return data.bus
+        }else if (title==='ferry'){
+            return data.ferry
+        }else if (title==='train'){
+            return data.train
+        }else if (title==='metro'){
+            return data.bus
+        }return data.bus
+    }
 
     const navigateDetails = () => {
         navigation.navigate('Details');
@@ -52,9 +60,10 @@ const TransportListScreen = ({navigation}) => {
                 <View style={styles.generalCard}>
                     <GraphCard />
                 </View>
-                <View style={styles.search}>
+                {/*<View style={styles.search}>
                     <SearchBarBuses />
-                </View>
+                </View>*/}
+                <Divider/>
 
                 <View style={styles.list}>
                     <View style={styles.titleContainer}>

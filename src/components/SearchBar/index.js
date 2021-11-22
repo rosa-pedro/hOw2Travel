@@ -8,13 +8,14 @@ import SearchIcon from '../Icons/SearchIcon';
 
 const filter = (item, query) => item.title.toLowerCase().includes(query.toLowerCase());
 
-const SearchBar = () => {
+const SearchBar = ({navigation}) => {
 
     const [value, setValue] = useState(null);
     const [data, setData] = useState(transportation);
 
     const onSelect = (index) => {
         setValue(data[index].title);
+        navigation.navigate('TransportList', {title: data[index].title})
         console.warn(`Pressed ${data[index].title}`);
     };
 

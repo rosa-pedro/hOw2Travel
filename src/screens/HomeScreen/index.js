@@ -28,7 +28,7 @@ const HomeScreen = ({navigation}) => {
             <Layout style={styles.container}>
 
                 <View style={styles.searchBarContainer}>
-                    <SearchBar />
+                    <SearchBar navigation={navigation}/>
                 </View>
 
                 <View style={styles.transportationTypesRowContainer}>
