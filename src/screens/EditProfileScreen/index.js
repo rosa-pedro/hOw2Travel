@@ -1,14 +1,26 @@
 import React, {useCallback, useState} from 'react';
 import themedStyles from './styles';
-import {Button, CheckBox, Icon, Input, Layout, Text, useStyleSheet} from "@ui-kitten/components";
+import {
+    Button,
+    CheckBox,
+    Divider,
+    Icon,
+    Input,
+    Layout,
+    Text,
+    TopNavigation, TopNavigationAction,
+    useStyleSheet
+} from "@ui-kitten/components";
 import { View, TouchableWithoutFeedback } from 'react-native';
 import {SafeAreaView} from "react-native-safe-area-context";
 import PersonIcon from "../../components/Icons/PersonIcon";
 import PlusIcon from "../../components/Icons/PlusIcon";
 import ProfileAvatar from "../../components/ProfileAvatar";
 import EmailIcon from "../../components/Icons/EmailIcon";
+import MenuIcon from "../../components/Icons/MenuIcon";
+import BackIcon from "../../components/Icons/BackIcon";
 
-const SignUpScreen = ({navigation}) => {
+const EditProfileScreen = ({navigation}) => {
 
     const [userName, setUsername] = useState('');
     const [email, setEmail] = useState('');
@@ -19,11 +31,11 @@ const SignUpScreen = ({navigation}) => {
     const styles = useStyleSheet(themedStyles);
 
     const onSignUpButtonPress = () => {
-        navigation && navigation.navigate('');
+        navigation.goBack();
     };
 
     const onSignInButtonPress = () => {
-        navigation && navigation.navigate('SignIn');
+        navigation.navigate('SignIn');
     };
 
     const onPasswordIconPress = () => {
@@ -44,25 +56,23 @@ const SignUpScreen = ({navigation}) => {
         />
     );
 
-    const renderCheckboxLabel = useCallback(
-        (evaprops) => (
-            <Text {...evaprops} style={styles.termsCheckBoxText}>
-                I read and agree to Terms & Conditions
-            </Text>
-        )
-        ,[]);
+    const navigateBack = () => {
+        navigation.goBack();
+    };
+
+    const BackAction = () => (
+        <TopNavigationAction icon={BackIcon} onPress={navigateBack}/>
+    );;
 
     return(
         <SafeAreaView style={styles.screen}>
 
-            <View style={styles.headerContainer}>
-                <ProfileAvatar
-                    style={styles.profileAvatar}
-                    resizeMode={'center'}
-                    source={require('../../assets/images/image-person.png')}
-                    editButton={renderEditAvatarButton}
-                />
-            </View>
+            {/*<View style={styles.headerContainer}>
+
+            </View>*/}
+
+            <TopNavigation title={'Edit Profile'} alignment={'center'} accessoryLeft={BackAction}/>
+            <Divider />
 
             <Layout
                 style={styles.formContainer}
@@ -92,31 +102,16 @@ const SignUpScreen = ({navigation}) => {
                     value={password}
                     onChangeText={setPassword}
                 />
-                <CheckBox
-                    style={styles.termsCheckBox}
-                    checked={termsAccepted}
-                    onChange={(checked => setTermsAccepted(checked))}
-                >
-                    {renderCheckboxLabel}
-                </CheckBox>
             </Layout>
             <Button
                 style={styles.signUpButton}
                 size={'giant'}
                 onPress={onSignUpButtonPress}
             >
-                SIGN UP
-            </Button>
-            <Button
-                style={styles.signInButton}
-                appearance={'ghost'}
-                status={'basic'}
-                onPress={onSignInButtonPress}
-            >
-                Already have an account? Sign In
+                DONE
             </Button>
         </SafeAreaView>
     );
 };
 
-export default SignUpScreen;
+export default EditProfileScreen;

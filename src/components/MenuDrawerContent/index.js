@@ -17,6 +17,7 @@ const MenuDrawerContent = ({navigation, state}) => {
             <DrawerItem title={'TransportList'} />
             <DrawerItem title={'Sign In'} />
             <DrawerItem title={'Sign Up'} />
+            <DrawerItem title={'Edit Profile'} />
         </Drawer>
     );
 };
