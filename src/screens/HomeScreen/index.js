@@ -39,8 +39,6 @@ const HomeScreen = ({navigation}) => {
                     <FavouriteTransportationList />
                 </View>
 
-                {/*<Text category={'h1'}>hOw2Travel</Text>
-                <Button onPress={navigateDetails} >OPEN DETAILS</Button>*/}
             </Layout>
         </SafeAreaView>
     );

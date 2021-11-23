@@ -1,8 +1,8 @@
 import React, {useCallback, useState} from 'react';
-import themedStyles from './styles';
-import {Button, CheckBox, Icon, Input, Layout, Text, useStyleSheet} from "@ui-kitten/components";
+import { Button, CheckBox, Icon, Input, Layout, Text } from "@ui-kitten/components";
 import { View, TouchableWithoutFeedback } from 'react-native';
-import {SafeAreaView} from "react-native-safe-area-context";
+import styles from './styles';
+import { SafeAreaView } from "react-native-safe-area-context";
 import PersonIcon from "../../components/Icons/PersonIcon";
 import PlusIcon from "../../components/Icons/PlusIcon";
 import ProfileAvatar from "../../components/ProfileAvatar";
@@ -15,8 +15,6 @@ const SignUpScreen = ({navigation}) => {
     const [password, setPassword] =  useState('');
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [termsAccepted, setTermsAccepted] = useState(false);
-
-    const styles = useStyleSheet(themedStyles);
 
     const onSignUpButtonPress = () => {
         navigation && navigation.navigate('');
@@ -56,12 +54,19 @@ const SignUpScreen = ({navigation}) => {
         <SafeAreaView style={styles.screen}>
 
             <View style={styles.headerContainer}>
-                <ProfileAvatar
-                    style={styles.profileAvatar}
-                    resizeMode={'center'}
-                    source={require('../../assets/images/image-person.png')}
-                    editButton={renderEditAvatarButton}
-                />
+                <Text
+                    category={'h1'}
+                    status={'control'}
+                >
+                    hOw2Travel
+                </Text>
+                <Text
+                    style={styles.signInLabel}
+                    category={'s1'}
+                    status={'control'}
+                >
+                    Create your account
+                </Text>
             </View>
 
             <Layout

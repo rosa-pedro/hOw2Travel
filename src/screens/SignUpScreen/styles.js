@@ -1,24 +1,24 @@
 import {StyleSheet} from "react-native";
-import {StyleService} from "@ui-kitten/components";
+import {BACKGROUND_COLOR, COLOR_PRIMARY, TEXT_HINT_COLOR} from "../../assets/theme";
 
-const styles = StyleService.create({
+const styles = StyleSheet.create({
     screen: {
         flex: 1,
-        backgroundColor: 'background-basic-color-1',
+        backgroundColor: BACKGROUND_COLOR,
     },
     headerContainer: {
         justifyContent: 'center',
         alignItems: 'center',
         minHeight: 216,
-        backgroundColor: 'color-primary-default',
+        backgroundColor: COLOR_PRIMARY,
     },
     profileAvatar: {
         width: 116,
         height: 116,
         borderRadius: 58,
         alignSelf: 'center',
-        backgroundColor: 'background-basic-color-1',
-        tintColor: 'color-primary-default',
+        backgroundColor: BACKGROUND_COLOR,
+        tintColor: COLOR_PRIMARY,
     },
     editAvatarButton: {
         width: 40,
@@ -40,7 +40,7 @@ const styles = StyleService.create({
         marginTop: 24,
     },
     termsCheckBoxText: {
-        color: 'text-hint-color',
+        color: TEXT_HINT_COLOR,
         marginLeft: 10,
     },
     signUpButton: {

@@ -62,7 +62,7 @@ const EditProfileScreen = ({navigation}) => {
 
     const BackAction = () => (
         <TopNavigationAction icon={BackIcon} onPress={navigateBack}/>
-    );;
+    );
 
     return(
         <SafeAreaView style={styles.screen}>
