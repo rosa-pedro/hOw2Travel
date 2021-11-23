@@ -32,7 +32,7 @@ const HomeScreen = ({navigation}) => {
                 </View>
 
                 <View style={styles.transportationTypesRowContainer}>
-                    <TransportationTypesRow />
+                    <TransportationTypesRow navigation={navigation}/>
                 </View>
 
                 <View style={styles.favouriteTransportationListContainer}>

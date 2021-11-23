@@ -17,16 +17,28 @@ const TransportListScreen = ({navigation, route}) => {
     console.log(busData)
     // console.warn(`this is: ${title}`)
 
-    const getData = () => {
+    /*const getData = () => {
         if (title==='bus'){
-            return data.bus
+            return busData
         }else if (title==='ferry'){
-            return data.ferry
+            return busData
         }else if (title==='train'){
-            return data.train
+            return busData
         }else if (title==='metro'){
-            return data.bus
-        }return data.bus
+            return busData
+        }return busData
+    }*/
+
+    const topTitle = () => {
+        if (title==='Bus'){
+            return 'Buses'
+        }else if (title==='Ferry'){
+            return 'Ferries'
+        }else if (title==='Train'){
+            return 'Trains'
+        }else if (title==='Subway'){
+            return 'Subways'
+        }return 'Trams'
     }
 
     const navigateDetails = () => {
@@ -45,7 +57,7 @@ const TransportListScreen = ({navigation, route}) => {
 
     const renderItem = ({ item, index }) => (
         <ListItem
-            title={`Bus nº ${item.title}`}
+            title={`${title} nº ${item.title}`}
             description={`Time: ${item.hour}`}
             accessoryLeft={BusIcon}
             accessoryRight={renderItemAccessory(item)}
@@ -54,7 +66,7 @@ const TransportListScreen = ({navigation, route}) => {
 
     return(
         <SafeAreaView style={styles.screen}>
-            <TopNavigation title={'Buses'} alignment={'center'} />
+            <TopNavigation title={topTitle()} alignment={'center'} />
             <Divider/>
             <Layout style={styles.container}>
                 <View style={styles.generalCard}>
