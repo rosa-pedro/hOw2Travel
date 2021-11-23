@@ -8,18 +8,38 @@ import {busData} from '../../assets/data/transportation'
 import BusIcon from "../../components/Icons/BusIcon";
 
 import Svg from 'react-native-svg';
-/*const data = new Array(BusData).fill({
-    title: this.title,
-    hour: this.hour,
-});*/
+
+const TransportListScreen = ({navigation, route}) => {
 
 
-
-const TransportListScreen = ({navigation}) => {
+    const { title } = route.params;
 
     console.log(busData)
+    // console.warn(`this is: ${title}`)
 
+    /*const getData = () => {
+        if (title==='bus'){
+            return busData
+        }else if (title==='ferry'){
+            return busData
+        }else if (title==='train'){
+            return busData
+        }else if (title==='metro'){
+            return busData
+        }return busData
+    }*/
 
+    const topTitle = () => {
+        if (title==='Bus'){
+            return 'Buses'
+        }else if (title==='Ferry'){
+            return 'Ferries'
+        }else if (title==='Train'){
+            return 'Trains'
+        }else if (title==='Subway'){
+            return 'Subways'
+        }return 'Trams'
+    }
 
     const navigateDetails = () => {
         navigation.navigate('Details');
@@ -37,7 +57,7 @@ const TransportListScreen = ({navigation}) => {
 
     const renderItem = ({ item, index }) => (
         <ListItem
-            title={`Bus nº ${item.title}`}
+            title={`${title} nº ${item.title}`}
             description={`Time: ${item.hour}`}
             accessoryLeft={BusIcon}
             accessoryRight={renderItemAccessory(item)}
@@ -46,15 +66,16 @@ const TransportListScreen = ({navigation}) => {
 
     return(
         <SafeAreaView style={styles.screen}>
-            <TopNavigation title={'Buses'} alignment={'center'} />
+            <TopNavigation title={topTitle()} alignment={'center'} />
             <Divider/>
             <Layout style={styles.container}>
                 <View style={styles.generalCard}>
                     <GraphCard />
                 </View>
-                <View style={styles.search}>
+                {/*<View style={styles.search}>
                     <SearchBarBuses />
-                </View>
+                </View>*/}
+                <Divider/>
 
                 <View style={styles.list}>
                     <View style={styles.titleContainer}>

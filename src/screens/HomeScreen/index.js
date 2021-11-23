@@ -28,11 +28,11 @@ const HomeScreen = ({navigation}) => {
             <Layout style={styles.container}>
 
                 <View style={styles.searchBarContainer}>
-                    <SearchBar />
+                    <SearchBar navigation={navigation}/>
                 </View>
 
                 <View style={styles.transportationTypesRowContainer}>
-                    <TransportationTypesRow />
+                    <TransportationTypesRow navigation={navigation}/>
                 </View>
 
                 <View style={styles.favouriteTransportationListContainer}>
