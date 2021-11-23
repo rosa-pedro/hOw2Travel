@@ -14,11 +14,11 @@ const SignInScreen = ({navigation}) => {
     const styles = useStyleSheet(themedStyles);
 
     const onSignUpButtonPress = () => {
-        navigation.navigate('SignUp')
+        navigation && navigation.navigate('SignUp')
     };
 
     const onForgotPasswordButtonPress = () => {
-        navigation.navigate('ForgotPassword');
+        navigation && navigation.navigate('ForgotPassword');
     };
 
     const onPasswordIconPress = () => {
