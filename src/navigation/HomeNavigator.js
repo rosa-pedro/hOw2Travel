@@ -6,12 +6,16 @@ import TransportListScreen from "../screens/TransportListScreen";
 import SignInScreen from "../screens/SignInScreen";
 import SignUpScreen from "../screens/SignUpScreen";
 import EditProfileScreen from "../screens/EditProfileScreen";
+import MenuDrawerContent from "../components/MenuDrawerContent";
 
 const { Navigator, Screen } = createDrawerNavigator();
 
-const RootNavigator = () => {
+const HomeNavigator = () => {
     return (
-        <Navigator screenOptions={{ headerShown: false }} >
+        <Navigator
+            screenOptions={{ headerShown: false }}
+            drawerContent={props => <MenuDrawerContent {...props} />}
+        >
             <Screen name={'Home'} component={HomeScreen} />
             <Screen name={'Orders'} component={DetailsScreen} />
             <Screen name={'TransportList'} component={TransportListScreen} />
@@ -22,4 +26,4 @@ const RootNavigator = () => {
     );
 }
 
-export default RootNavigator;
+export default HomeNavigator;

@@ -1,3 +1,10 @@
 export const COLOR_PRIMARY = '#3366ff';
-export const BACKGROUND_COLOR = '#f2f6ff';
+export const COLOR_SECONDARY = '#EDFFF3';
+export const COLOR_TERTIARY = '#D9E4FF';
+export const COLOR_SUCCESS = '#00E096';
+export const COLOR_INFO = '#0095FF';
+export const COLOR_WARNING = '#FFAA00';
+export const COLOR_DANGER = '#FF3D71';
+export const COLOR_BASIC = '#C5CEE0';
+export const BACKGROUND_COLOR = '#F2F6FF';
 export const TEXT_HINT_COLOR = '#8F9BB3';

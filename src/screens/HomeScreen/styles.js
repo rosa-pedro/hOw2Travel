@@ -1,30 +1,43 @@
 import {StyleSheet} from "react-native";
+import {BACKGROUND_COLOR, COLOR_SECONDARY, COLOR_SUCCESS, COLOR_TERTIARY, TEXT_HINT_COLOR} from "../../assets/theme";
 
 const styles = StyleSheet.create({
     screen: {
-      flex: 1,
+        flex: 1,
+        backgroundColor: BACKGROUND_COLOR,
     },
     container: {
         flex: 1,
-        /*paddingVertical: '5%',*/
-        /*justifyContent: 'space-between',*/
-        /*alignItems: 'center',*/
-        /*backgroundColor: 'red',*/
+        backgroundColor: COLOR_SUCCESS,
+    },
+    titleLabel: {
+        marginLeft: '5%',
+    },
+    titleContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    topNavigationContainer: {
+        backgroundColor: COLOR_SUCCESS,
+        paddingLeft: '5%',
+        paddingTop: '5%',
+    },
+    menuContainer: {
+        marginTop: 5,
     },
     searchBarContainer: {
         flex: 1,
-       /* backgroundColor: 'green',*/
         justifyContent: 'center',
         paddingHorizontal: '5%'
     },
     transportationTypesRowContainer: {
         flex: 1,
-        /*backgroundColor: 'blue',*/
+        marginBottom: '5%'
     },
     favouriteTransportationListContainer : {
         flex: 7,
-        /*backgroundColor: 'yellow',*/
-        /*paddingLeft: '5%'*/
+        backgroundColor: COLOR_SECONDARY,
     },
 });
 

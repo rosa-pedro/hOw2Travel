@@ -4,8 +4,6 @@ import { View, TouchableWithoutFeedback } from 'react-native';
 import styles from './styles';
 import { SafeAreaView } from "react-native-safe-area-context";
 import PersonIcon from "../../components/Icons/PersonIcon";
-import PlusIcon from "../../components/Icons/PlusIcon";
-import ProfileAvatar from "../../components/ProfileAvatar";
 import EmailIcon from "../../components/Icons/EmailIcon";
 
 const SignUpScreen = ({navigation}) => {
@@ -17,11 +15,11 @@ const SignUpScreen = ({navigation}) => {
     const [termsAccepted, setTermsAccepted] = useState(false);
 
     const onSignUpButtonPress = () => {
-        navigation && navigation.navigate('');
+        navigation && navigation.goBack();
     };
 
     const onSignInButtonPress = () => {
-        navigation && navigation.navigate('SignIn');
+        navigation && navigation.goBack();
     };
 
     const onPasswordIconPress = () => {
@@ -34,14 +32,6 @@ const SignUpScreen = ({navigation}) => {
         </TouchableWithoutFeedback>
     );
 
-    const renderEditAvatarButton = () => (
-        <Button
-            style={styles.editAvatarButton}
-            status={'basic'}
-            accessoryRight={PlusIcon}
-        />
-    );
-
     const renderCheckboxLabel = useCallback(
         (evaprops) => (
             <Text {...evaprops} style={styles.termsCheckBoxText}>
@@ -52,16 +42,16 @@ const SignUpScreen = ({navigation}) => {
 
     return(
         <SafeAreaView style={styles.screen}>
-
             <View style={styles.headerContainer}>
+
                 <Text
                     category={'h1'}
                     status={'control'}
                 >
-                    hOw2Travel
+                    Hello
                 </Text>
                 <Text
-                    style={styles.signInLabel}
+                    style={styles.signUpLabel}
                     category={'s1'}
                     status={'control'}
                 >
@@ -108,6 +98,7 @@ const SignUpScreen = ({navigation}) => {
             <Button
                 style={styles.signUpButton}
                 size={'giant'}
+                status={'success'}
                 onPress={onSignUpButtonPress}
             >
                 SIGN UP

@@ -11,6 +11,9 @@ const SignInScreen = ({navigation}) => {
     const [password, setPassword] =  useState('');
     const [passwordVisible, setPasswordVisible] = useState(false);
 
+    const onSignInButtonPress = () => {
+        navigation && navigation.navigate('Root')
+    };
 
     const onSignUpButtonPress = () => {
         navigation && navigation.navigate('SignUp')
@@ -39,7 +42,7 @@ const SignInScreen = ({navigation}) => {
                         category={'h1'}
                         status={'control'}
                     >
-                        hOw2Travel
+                        Hello
                     </Text>
                     <Text
                         style={styles.signInLabel}
@@ -82,6 +85,8 @@ const SignInScreen = ({navigation}) => {
                 <Button
                     style={styles.signInButton}
                     size={'giant'}
+                    status={'success'}
+                    onPress={onSignInButtonPress}
                 >
                     SIGN IN
                 </Button>

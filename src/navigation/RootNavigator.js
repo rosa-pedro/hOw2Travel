@@ -13,10 +13,7 @@ const { Navigator, Screen } = createNativeStackNavigator();
 
 const HomeNavigator = () => {
     return (
-        <Navigator
-            screenOptions={{ headerShown: false }}
-            drawerContent={props => <MenuDrawerContent {...props} />}
-        >
+        <Navigator screenOptions={{ headerShown: false }}>
             <Screen name={'Users'} component={HomeScreen} />
             <Screen name={'Orders'} component={DetailsScreen} />
             <Screen name={'TransportList'} component={TransportListScreen} />

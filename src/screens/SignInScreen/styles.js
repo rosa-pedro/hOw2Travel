@@ -1,5 +1,5 @@
 import {StyleSheet} from "react-native";
-import {BACKGROUND_COLOR, COLOR_PRIMARY} from "../../assets/theme";
+import {BACKGROUND_COLOR, COLOR_PRIMARY, COLOR_SUCCESS} from "../../assets/theme";
 
 const styles = StyleSheet.create({
     screen: {
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         minHeight: 216,
-        backgroundColor: COLOR_PRIMARY,
+        backgroundColor: COLOR_SUCCESS,
     },
     formContainer: {
         flex: 1,

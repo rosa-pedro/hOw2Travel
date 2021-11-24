@@ -16,52 +16,60 @@ const ForgotPasswordScreen = ({navigation}) => {
         navigation && navigation.goBack();
     }
 
-    const navigateBack = () => {
-        navigation.goBack();
+    const onGoBackButtonPress = () => {
+        navigation && navigation.goBack();
     };
-
-    const BackAction = () => (
-        <TopNavigationAction icon={BackIcon} onPress={navigateBack}/>
-    );
 
     return(
 
         <SafeAreaView style={styles.screen}>
             <Layout style={styles.container}>
 
-                <TopNavigation title={''} alignment={'center'} accessoryLeft={BackAction}/>
+                <View style={styles.headerContainer}>
+                    <Text
+                        category={'h1'}
+                        status={'control'}
+                    >
+                        Forgot Password
+                    </Text>
+                    <Text
+                        style={styles.enterEmailLabel}
+                        category={'s1'}
+                        status={'control'}
+                    >
+                        Please enter your email address
+                    </Text>
+                </View>
 
-
-                <Text
-                    style={styles.forgotPasswordLabel}
-                    category={'h4'}
-                    status={'basic'}
+                <Layout
+                    style={styles.formContainer}
+                        level={'1'}
                 >
-                    Forgot Password
-                </Text>
-
-                <Text
-                    style={styles.enterEmailLabel}
-                    status={'basic'}
-                >
-                    Please enter your email address
-                </Text>
-
-                <View style={styles.formContainer}>
                     <Input
-                        status={'basic'}
+                        autoCapitalize={'none'}
                         placeholder={'Email'}
                         accessoryRight={EmailIcon}
                         value={email}
                         onChangeText={setEmail}
                     />
-                </View>
+                </Layout>
 
                 <Button
+                    style={styles.resetPasswordButton}
                     size='giant'
+                    status={'success'}
                     onPress={onResetPasswordButtonPress}
                 >
                     RESET PASSWORD
+                </Button>
+
+                <Button
+                    style={styles.backButton}
+                    appearance={'ghost'}
+                    status={'basic'}
+                    onPress={onGoBackButtonPress}
+                >
+                    Did you remember the password? Sign In
                 </Button>
 
             </Layout>

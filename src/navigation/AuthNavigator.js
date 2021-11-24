@@ -1,7 +1,7 @@
 import React from 'react';
 import SignInScreen from "../screens/SignInScreen";
 import SignUpScreen from "../screens/SignUpScreen";
-import RootNavigator from "./HomeNavigator";
+import RootNavigator from "./RootNavigator";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import ForgotPasswordScreen from "../screens/ForgotPasswordScreen";
 
