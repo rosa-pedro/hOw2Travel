@@ -8,18 +8,20 @@ import SignInScreen from "../screens/SignInScreen";
 import SignUpScreen from "../screens/SignUpScreen";
 import EditProfileScreen from "../screens/EditProfileScreen";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
+import AboutScreen from "../screens/AboutScreen";
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
 const HomeNavigator = () => {
     return (
         <Navigator screenOptions={{ headerShown: false }}>
-            <Screen name={'Users'} component={HomeScreen} />
+            <Screen name={'Home'} component={HomeScreen} />
             <Screen name={'Orders'} component={DetailsScreen} />
             <Screen name={'TransportList'} component={TransportListScreen} />
             <Screen name={'SignIn'} component={SignInScreen} />
             <Screen name={'SignUp'} component={SignUpScreen} />
             <Screen name={'EditProfile'} component={EditProfileScreen} />
+            <Screen name={'About'} component={AboutScreen} />
         </Navigator>
     );
 }

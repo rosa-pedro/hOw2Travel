@@ -35,7 +35,7 @@ const SignInScreen = ({navigation}) => {
 
     return(
         <SafeAreaView style={styles.screen}>
-            <Layout style={styles.container}>
+            <Layout style={styles.container} level={'1'} >
 
                 <View style={styles.headerContainer}>
                     <Text

@@ -29,6 +29,21 @@ const HomeScreen = ({navigation}) => {
         setMenuVisible(!menuVisible);
     };
 
+    const onAboutButtonPress = () => {
+        navigation && navigation.navigate('About');
+        toggleMenu()
+    };
+
+    const onLogoutButtonPress = () => {
+        navigation && navigation.navigate('SignIn');
+        toggleMenu()
+    };
+
+    const onEditProfileButtonPress = () => {
+        navigation && navigation.navigate('EditProfile');
+        toggleMenu()
+    };
+
     const renderMenuAction = () => (
         <TopNavigationAction icon={MenuIcon} appearance={'control'} onPress={toggleMenu} />
     );
@@ -41,9 +56,9 @@ const HomeScreen = ({navigation}) => {
                 onBackdropPress={toggleMenu}
                 style={styles.menuContainer}
             >
-                <MenuItem accessoryLeft={PersonIcon} title={'Edit Profile'} />
-                <MenuItem accessoryLeft={InfoIcon} title={'About'} />
-                <MenuItem accessoryLeft={LogoutIcon} title={'Logout'} />
+                <MenuItem accessoryLeft={InfoIcon} title={'About'} onPress={onAboutButtonPress}/>
+                <MenuItem accessoryLeft={PersonIcon} title={'Edit Profile'} onPress={onEditProfileButtonPress} />
+                <MenuItem accessoryLeft={LogoutIcon} title={'Logout'} onPress={onLogoutButtonPress} />
             </OverflowMenu>
         </View>
     );

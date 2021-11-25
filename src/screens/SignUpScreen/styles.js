@@ -15,20 +15,13 @@ const styles = StyleSheet.create({
         minHeight: 216,
         backgroundColor: COLOR_SUCCESS,
     },
+    signUpLabel: {
+        marginTop: 16,
+    },
     formContainer: {
         flex: 1,
         paddingTop: 32,
         paddingHorizontal: 16,
-    },
-    signUpLabel: {
-        marginTop: 16,
-    },
-    signUpButton: {
-        marginHorizontal: 16,
-    },
-    signInButton: {
-        marginVertical: 12,
-        marginHorizontal: 16,
     },
     emailInput: {
         marginTop: 16,
@@ -42,6 +35,13 @@ const styles = StyleSheet.create({
     termsCheckBoxText: {
         color: TEXT_HINT_COLOR,
         marginLeft: 10,
+    },
+    signUpButton: {
+        marginHorizontal: 16,
+    },
+    signInButton: {
+        marginVertical: 12,
+        marginHorizontal: 16,
     },
 });
 

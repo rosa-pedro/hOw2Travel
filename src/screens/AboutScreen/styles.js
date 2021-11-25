@@ -1,5 +1,5 @@
 import {StyleSheet} from "react-native";
-import {BACKGROUND_COLOR, COLOR_SUCCESS, TEXT_HINT_COLOR} from "../../assets/theme";
+import {BACKGROUND_COLOR, COLOR_SUCCESS} from "../../assets/theme";
 
 const styles = StyleSheet.create({
     screen: {
@@ -15,21 +15,15 @@ const styles = StyleSheet.create({
         minHeight: 216,
         backgroundColor: COLOR_SUCCESS,
     },
-    editProfileLabel: {
-        marginTop: 16,
-    },
     formContainer: {
         flex: 1,
         paddingTop: 32,
         paddingHorizontal: 16,
     },
-    emailInput: {
+    enterEmailLabel: {
         marginTop: 16,
     },
-    passwordInput: {
-        marginTop: 16,
-    },
-    editProfileButton: {
+    resetPasswordButton: {
         marginHorizontal: 16,
     },
     backButton: {

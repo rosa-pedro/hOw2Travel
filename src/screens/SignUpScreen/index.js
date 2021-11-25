@@ -42,7 +42,7 @@ const SignUpScreen = ({navigation}) => {
 
     return(
         <SafeAreaView style={styles.screen}>
-            <View style={styles.headerContainer}>
+            <View style={styles.headerContainer} level={'1'} >
 
                 <Text
                     category={'h1'}

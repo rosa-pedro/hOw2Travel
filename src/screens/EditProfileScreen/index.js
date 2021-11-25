@@ -1,5 +1,5 @@
 import React, {useCallback, useState} from 'react';
-import themedStyles from './styles';
+import styles from './styles';
 import {
     Button,
     CheckBox,
@@ -26,16 +26,14 @@ const EditProfileScreen = ({navigation}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] =  useState('');
     const [passwordVisible, setPasswordVisible] = useState(false);
-    const [termsAccepted, setTermsAccepted] = useState(false);
 
-    const styles = useStyleSheet(themedStyles);
 
-    const onSignUpButtonPress = () => {
+    const onEditProfileButtonPress = () => {
         navigation.goBack();
     };
 
-    const onSignInButtonPress = () => {
-        navigation.navigate('SignIn');
+    const onGoBackButtonPress = () => {
+        navigation.goBack();
     };
 
     const onPasswordIconPress = () => {
@@ -48,68 +46,71 @@ const EditProfileScreen = ({navigation}) => {
         </TouchableWithoutFeedback>
     );
 
-    const renderEditAvatarButton = () => (
-        <Button
-            style={styles.editAvatarButton}
-            status={'basic'}
-            accessoryRight={PlusIcon}
-        />
-    );
-
-    const navigateBack = () => {
-        navigation.goBack();
-    };
-
-    const BackAction = () => (
-        <TopNavigationAction icon={BackIcon} onPress={navigateBack}/>
-    );
-
     return(
         <SafeAreaView style={styles.screen}>
+            <Layout style={styles.container} level={'1'} >
 
-            {/*<View style={styles.headerContainer}>
+                <View style={styles.headerContainer}>
+                    <Text
+                        category={'h1'}
+                        status={'control'}
+                    >
+                        Edit Profile
+                    </Text>
+                    <Text
+                        style={styles.editProfileLabel}
+                        category={'s1'}
+                        status={'control'}
+                    >
+                        Please edit the fields you want
+                    </Text>
+                </View>
 
-            </View>*/}
 
-            <TopNavigation title={'Edit Profile'} alignment={'center'} accessoryLeft={BackAction}/>
-            <Divider />
+                <Layout style={styles.formContainer} level={'1'} >
+                    <Input
+                        autoCapitalize={'none'}
+                        placeholder={'User Name'}
+                        accessoryRight={PersonIcon}
+                        value={userName}
+                        onChangeText={setUsername}
+                    />
+                    <Input
+                        style={styles.emailInput}
+                        autoCapitalize={'none'}
+                        placeholder={'Email'}
+                        accessoryRight={EmailIcon}
+                        value={email}
+                        onChangeText={setEmail}
+                    />
+                    <Input
+                        style={styles.passwordInput}
+                        autoCapitalize={'none'}
+                        secureTextEntry={!passwordVisible}
+                        placeholder={'Password'}
+                        accessoryRight={renderPasswordIcon}
+                        value={password}
+                        onChangeText={setPassword}
+                    />
+                </Layout>
+                <Button
+                    style={styles.editProfileButton}
+                    size={'giant'}
+                    status={'success'}
+                    onPress={onEditProfileButtonPress}
+                >
+                    EDIT PROFILE
+                </Button>
+                <Button
+                    style={styles.backButton}
+                    appearance={'ghost'}
+                    status={'basic'}
+                    onPress={onGoBackButtonPress}
+                >
+                    Have you changed your mind? Go back
+                </Button>
 
-            <Layout
-                style={styles.formContainer}
-                level={'1'}
-            >
-                <Input
-                    autoCapitalize={'none'}
-                    placeholder={'User Name'}
-                    accessoryRight={PersonIcon}
-                    value={userName}
-                    onChangeText={setUsername}
-                />
-                <Input
-                    style={styles.emailInput}
-                    autoCapitalize={'none'}
-                    placeholder={'Email'}
-                    accessoryRight={EmailIcon}
-                    value={email}
-                    onChangeText={setEmail}
-                />
-                <Input
-                    style={styles.passwordInput}
-                    autoCapitalize={'none'}
-                    secureTextEntry={!passwordVisible}
-                    placeholder={'Password'}
-                    accessoryRight={renderPasswordIcon}
-                    value={password}
-                    onChangeText={setPassword}
-                />
             </Layout>
-            <Button
-                style={styles.signUpButton}
-                size={'giant'}
-                onPress={onSignUpButtonPress}
-            >
-                DONE
-            </Button>
         </SafeAreaView>
     );
 };

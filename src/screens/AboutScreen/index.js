@@ -7,10 +7,7 @@ import BackIcon from "../../components/Icons/BackIcon";
 import {SafeAreaView} from "react-native-safe-area-context";
 
 
-
-const ForgotPasswordScreen = ({navigation}) => {
-
-    const [email, setEmail] = useState('');
+const AboutScreen = ({navigation}) => {
 
     const onResetPasswordButtonPress = () => {
         navigation && navigation.goBack();
@@ -30,29 +27,17 @@ const ForgotPasswordScreen = ({navigation}) => {
                         category={'h1'}
                         status={'control'}
                     >
-                        Forgot Password
+                        INFO SCREEN
                     </Text>
                     <Text
                         style={styles.enterEmailLabel}
                         category={'s1'}
                         status={'control'}
                     >
-                        Please enter your email address
+                        Info about the App
                     </Text>
                 </View>
 
-                <Layout
-                    style={styles.formContainer}
-                        level={'1'}
-                >
-                    <Input
-                        autoCapitalize={'none'}
-                        placeholder={'Email'}
-                        accessoryRight={EmailIcon}
-                        value={email}
-                        onChangeText={setEmail}
-                    />
-                </Layout>
 
                 <Button
                     style={styles.resetPasswordButton}
@@ -60,16 +45,7 @@ const ForgotPasswordScreen = ({navigation}) => {
                     status={'success'}
                     onPress={onResetPasswordButtonPress}
                 >
-                    RESET PASSWORD
-                </Button>
-
-                <Button
-                    style={styles.backButton}
-                    appearance={'ghost'}
-                    status={'basic'}
-                    onPress={onGoBackButtonPress}
-                >
-                    Did you remember the password? Sign In
+                    INFORMED
                 </Button>
 
             </Layout>
@@ -77,4 +53,4 @@ const ForgotPasswordScreen = ({navigation}) => {
     );
 };
 
-export default ForgotPasswordScreen;
+export default AboutScreen;
