@@ -66,7 +66,7 @@ const TransportListScreen = ({navigation, route}) => {
 
     return(
         <SafeAreaView style={styles.screen}>
-            <TopNavigation title={topTitle()} alignment={'center'} />
+            <TopNavigation title={topTitle} alignment={'center'} />
             <Divider/>
             <Layout style={styles.container}>
                 <View style={styles.generalCard}>

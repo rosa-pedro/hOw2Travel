@@ -11,7 +11,7 @@ import TransportButton from "../TransportButton";
 const TransportationTypesRow = ({navigation}) => {
     return(
         <View style={styles.container}>
-            <TransportButton name={'Bus'} icon={BusIcon} onPress={() => {console.warn('Bus Pressed'), navigation.navigate('TransportList', {title: 'Bus'})}} />
+            <TransportButton name={'Bus'} icon={BusIcon} onPress={() => {{/*console.warn('Bus Pressed'),*/} navigation.navigate('TransportationList', {title: 'Bus'})}} />
             <TransportButton name={'Train'} icon={TrainIcon} onPress={() => {console.warn('Train Pressed'), navigation.navigate('TransportList', {title: 'Train'})}} />
             <TransportButton name={'Tram'} icon={TramIcon} onPress={() => {console.warn('Tram Pressed'), navigation.navigate('TransportList', {title: 'Tram'})}} />
             <TransportButton name={'Subway'} icon={SubwayIcon} onPress={() => {console.warn('Subway Pressed'), navigation.navigate('TransportList', {title: 'Subway'})}} />

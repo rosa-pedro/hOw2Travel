@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     },
     title: {
         paddingLeft: 8,
-    }
+    },
 });
 
 export default styles;
