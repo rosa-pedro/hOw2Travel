@@ -18,10 +18,7 @@ const HomeNavigator = () => {
     return (
         <Navigator screenOptions={{ headerShown: false }}>
             <Screen name={'Home'} component={HomeScreen} />
-            <Screen name={'Orders'} component={DetailsScreen} />
             <Screen name={'TransportList'} component={TransportListScreen} />
-            <Screen name={'SignIn'} component={SignInScreen} />
-            <Screen name={'SignUp'} component={SignUpScreen} />
             <Screen name={'EditProfile'} component={EditProfileScreen} />
             <Screen name={'About'} component={AboutScreen} />
             <Screen name={'TransportationList'} component={TransportationListScreen} />

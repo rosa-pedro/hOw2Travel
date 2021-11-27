@@ -4,6 +4,7 @@ import { Button, Icon, Input, Layout, Text } from "@ui-kitten/components";
 import { View, TouchableWithoutFeedback } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 import PersonIcon from "../../components/Icons/PersonIcon";
+import {useAuth} from "../../contexts/AuthContext";
 
 const SignInScreen = ({navigation}) => {
 
@@ -11,8 +12,10 @@ const SignInScreen = ({navigation}) => {
     const [password, setPassword] =  useState('');
     const [passwordVisible, setPasswordVisible] = useState(false);
 
+    const auth = useAuth();
+
     const onSignInButtonPress = () => {
-        navigation && navigation.navigate('Root')
+        auth.signIn(email, password);
     };
 
     const onSignUpButtonPress = () => {

@@ -5,16 +5,20 @@ import styles from './styles';
 import { SafeAreaView } from "react-native-safe-area-context";
 import PersonIcon from "../../components/Icons/PersonIcon";
 import EmailIcon from "../../components/Icons/EmailIcon";
+import {useAuth} from "../../contexts/AuthContext";
 
 const SignUpScreen = ({navigation}) => {
 
-    const [userName, setUsername] = useState('');
+    const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] =  useState('');
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [termsAccepted, setTermsAccepted] = useState(false);
 
+    const auth = useAuth();
+
     const onSignUpButtonPress = () => {
+        auth.signUp(username, email, password);
         navigation && navigation.goBack();
     };
 
@@ -67,7 +71,7 @@ const SignUpScreen = ({navigation}) => {
                     autoCapitalize={'none'}
                     placeholder={'User Name'}
                     accessoryRight={PersonIcon}
-                    value={userName}
+                    value={username}
                     onChangeText={setUsername}
                 />
                 <Input

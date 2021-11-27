@@ -5,14 +5,16 @@ import {ApplicationProvider, IconRegistry} from "@ui-kitten/components";
 import {EvaIconsPack} from '@ui-kitten/eva-icons';
 import { MaterialIconsPack } from './src/assets/Icons/material-icons';
 import AppNavigator from "./src/navigation/AppNavigator";
-import SignInScreen from "./src/screens/SignInScreen";
+import {AuthProvider} from "./src/contexts/AuthContext";
 
 const App = () => {
   return (
       <>
           <IconRegistry icons={[EvaIconsPack, MaterialIconsPack]} />
           <ApplicationProvider {...eva} theme={eva.light} >
-              <AppNavigator />
+              <AuthProvider>
+                  <AppNavigator />
+              </AuthProvider>
           </ApplicationProvider>
       </>
   );

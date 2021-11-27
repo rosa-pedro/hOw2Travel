@@ -20,10 +20,13 @@ import MenuIcon from "../../components/Icons/MenuIcon";
 import InfoIcon from "../../components/Icons/InfoIcon";
 import PersonIcon from "../../components/Icons/PersonIcon";
 import LogoutIcon from "../../components/Icons/LogoutIcon";
+import {useAuth} from "../../contexts/AuthContext";
 
 const HomeScreen = ({navigation}) => {
 
     const [menuVisible, setMenuVisible] = useState(false);
+
+    const auth = useAuth();
 
     const toggleMenu = () => {
         setMenuVisible(!menuVisible);
@@ -35,7 +38,8 @@ const HomeScreen = ({navigation}) => {
     };
 
     const onLogoutButtonPress = () => {
-        navigation && navigation.navigate('SignIn');
+        //navigation && navigation.navigate('SignIn');
+        auth.signOut();
         toggleMenu()
     };
 
