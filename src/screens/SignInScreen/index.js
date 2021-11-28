@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styles from './styles';
-import { Button, Icon, Input, Layout, Text } from "@ui-kitten/components";
+import {Button, Card, Icon, Input, Layout, Modal, Text} from "@ui-kitten/components";
 import { View, TouchableWithoutFeedback } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 import PersonIcon from "../../components/Icons/PersonIcon";
@@ -12,10 +12,14 @@ const SignInScreen = ({navigation}) => {
     const [password, setPassword] =  useState('');
     const [passwordVisible, setPasswordVisible] = useState(false);
 
+    const [visible, setVisible] = useState(false);
+
     const auth = useAuth();
 
     const onSignInButtonPress = () => {
-        auth.signIn(email, password);
+
+        auth.signIn(email, password).then((response) => setVisible(response)).catch(() => setVisible(true));
+
     };
 
     const onSignUpButtonPress = () => {
@@ -84,6 +88,31 @@ const SignInScreen = ({navigation}) => {
                             Forgot your password?
                         </Button>
                     </View>
+
+                    <Modal
+                        style={styles.invalidInputModal}
+                        visible={visible}
+                        backdropStyle={styles.backdrop}
+                        onBackdropPress={() => setVisible(false)}
+                    >
+                        <Card
+                            status={'success'}
+                            styles={styles.invalidInputModalCard}
+                            header={<Text category={'h5'} >Sign In Failed!</Text>}
+                        >
+                            <Text
+                                category={'s1'}
+                            >The username or password that you entered are invalid, please try again.</Text>
+                            <Button
+                                style={styles.invalidInputModalButton}
+                                /*size={'large'}*/
+                                onPress={() => setVisible(false)}
+                            >
+                                DISMISS
+                            </Button>
+                        </Card>
+                    </Modal>
+
                 </Layout>
                 <Button
                     style={styles.signInButton}

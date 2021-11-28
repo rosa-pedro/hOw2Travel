@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import {NavigationContainer} from "@react-navigation/native";
-import RootNavigator from "./HomeNavigator";
 import AuthNavigator from "./AuthNavigator";
 import {useAuth} from "../contexts/AuthContext";
 import Loading from "../components/Loading";
+import RootNavigator from "./RootNavigator";
 
 
 const AppNavigator = () => {
@@ -13,12 +13,6 @@ const AppNavigator = () => {
     if(loading) {
         return <Loading />;
     }
-
-    console.log('authData:' + typeof authData);
-
-    /*useEffect(() => {
-        console.log('authData: ' + authData);
-    },[]);*/
 
     return (
         <NavigationContainer>

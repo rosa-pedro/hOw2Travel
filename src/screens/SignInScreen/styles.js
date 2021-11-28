@@ -40,6 +40,19 @@ const styles = StyleSheet.create({
     forgotPasswordButton: {
         paddingHorizontal: 16,
     },
+    backdrop: {
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    },
+    invalidInputModal: {
+        paddingHorizontal: '10%',
+    },
+    invalidInputModalCard: {
+        margin: 2,
+    },
+    invalidInputModalButton: {
+        marginTop: '8%',
+        marginHorizontal: '20%',
+    },
 });
 
 export default styles;

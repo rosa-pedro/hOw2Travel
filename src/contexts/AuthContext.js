@@ -42,6 +42,8 @@ const AuthProvider = ({children}) => {
         console.log('_authData: ' + _authData );
         setAuthData(_authData);
         AsyncStorage.setItem(AuthToken, JSON.stringify(_authData));
+
+        return Object.keys(_authData).length === 0;
     };
 
     const signOut = async () => {
