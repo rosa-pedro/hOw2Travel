@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './styles';
 import {Button, Card, Icon, Input, Layout, Modal, Text} from "@ui-kitten/components";
 import { View, TouchableWithoutFeedback } from 'react-native';
@@ -21,6 +21,12 @@ const SignInScreen = ({navigation}) => {
         auth.signIn(email, password).then((response) => setVisible(response)).catch(() => setVisible(true));
 
     };
+
+    useEffect(() => {
+        return () => {
+            setVisible(false);
+        }
+    }, [])
 
     const onSignUpButtonPress = () => {
         navigation && navigation.navigate('SignUp')
