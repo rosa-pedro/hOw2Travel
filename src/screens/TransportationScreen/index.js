@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { View } from 'react-native';
 import {Button, Icon, Input, Layout, Text, TopNavigation, TopNavigationAction} from '@ui-kitten/components';
 import styles from './styles';
@@ -10,9 +10,20 @@ import RateBar from '../../components/RateBar';
 import TransportationMeasurementsCard from "../../components/TransportationMeasurementsCard";
 
 
-const TransportationScreen = ({navigation}) => {
+const TransportationScreen = ({navigation, route}) => {
 
     const [quality, setQuality] = useState('');
+
+    const {id, type, number, initialStop, finalStop} = route.params;
+
+    useEffect(() => {
+        console.log('TransportScreen:')
+        console.log(id);
+        console.log(type);
+        console.log(number);
+        console.log(initialStop);
+        console.log(finalStop);
+    },[]);
 
     const onFollowButtonPress = () => {
         console.warn('Following');
@@ -61,7 +72,7 @@ const TransportationScreen = ({navigation}) => {
                         <BusIcon style={styles.transportationIcon}/>
                         <View style={styles.transportationDetailsContainer}>
                             <Text category={'h4'}>
-                                Bus Nr. 1
+                                Bus Nr. {JSON.stringify(number)}
                             </Text>
                             <Text
                                 category={'s1'}

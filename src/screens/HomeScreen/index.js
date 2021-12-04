@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './styles';
 import {
     Avatar,
@@ -21,12 +21,14 @@ import InfoIcon from "../../components/Icons/InfoIcon";
 import PersonIcon from "../../components/Icons/PersonIcon";
 import LogoutIcon from "../../components/Icons/LogoutIcon";
 import {useAuth} from "../../contexts/AuthContext";
+import useLines from "../../hooks/useLines";
 
 const HomeScreen = ({navigation}) => {
 
     const [menuVisible, setMenuVisible] = useState(false);
 
     const auth = useAuth();
+    const {data, isLoading, isSuccess} = useLines();
 
     const toggleMenu = () => {
         setMenuVisible(!menuVisible);

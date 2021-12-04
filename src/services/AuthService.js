@@ -6,7 +6,6 @@ const client = axios.create({
 
 const signIn = async (email, password) => {
     const {data} = await client.get(`/${email}/${password}`);
-    console.log('data: ' + data);
 
     return data;
 };
