@@ -12,7 +12,6 @@ const AuthProvider = ({children}) => {
 
     useEffect(() => {
         loadStorageData();
-        console.log(authData);
     }, []);
 
     const loadStorageData = async () => {
@@ -26,8 +25,6 @@ const AuthProvider = ({children}) => {
                 const _authData = JSON.parse(authDataSerialized);
                 setAuthData(_authData);
             }
-
-            console.log('authDataSerialized: ' + authDataSerialized);
 
         } catch (error) {
             console.warn(error);

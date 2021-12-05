@@ -22,13 +22,11 @@ import PersonIcon from "../../components/Icons/PersonIcon";
 import LogoutIcon from "../../components/Icons/LogoutIcon";
 import {useAuth} from "../../contexts/AuthContext";
 import useLines from "../../hooks/useLines";
+import useFavorites from "../../hooks/useFavorites";
 
 const HomeScreen = ({navigation}) => {
 
     const [menuVisible, setMenuVisible] = useState(false);
-
-    const auth = useAuth();
-    const {data, isLoading, isSuccess} = useLines();
 
     const toggleMenu = () => {
         setMenuVisible(!menuVisible);

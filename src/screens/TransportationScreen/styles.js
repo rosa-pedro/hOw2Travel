@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     headerContainer: {
         justifyContent: 'center',
         alignItems: 'center',
-        minHeight: 216,
+        minHeight: '10%',
         backgroundColor: COLOR_SUCCESS,
     },
     header: {
@@ -55,14 +55,29 @@ const styles = StyleSheet.create({
         marginVertical: 12,
         marginHorizontal: 16,
     },
-    transportationMeasurementsSection: {
+    transportationMeasurementsContainer: {
+        flex: 1,
         flexDirection: 'row',
-        marginTop: 16,
+        marginVertical: 24,
         marginHorizontal: 8,
     },
-    transportationMeasurement: {
-        flex: 1,
+    transportationMeasurementsSectionsDivider: {
+        width: 1,
+        height: '100%',
         marginHorizontal: 8,
+    },
+    transportationInfoSection: {
+        marginHorizontal: 16,
+    },
+    transportationInfoContainer: {
+        flex: 1,
+        justifyContent: 'center'
+    },
+    transportationMeasurementsSection: {
+        marginHorizontal: 16,
+    },
+    transportationMeasurement: {
+      marginBottom: 16,
     },
 });
 
