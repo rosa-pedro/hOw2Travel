@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './styles';
 import {
     Avatar,
@@ -21,36 +21,69 @@ import {BACKGROUND_COLOR, COLOR_SECONDARY, COLOR_SUCCESS, COLOR_TERTIARY} from "
 import CompassIcon from "../../components/Icons/CompassIcon";
 import BackIcon from "../../components/Icons/BackIcon";
 import Svg from "react-native-svg";
+import {useFavorites} from "../../hooks/useFavorites";
+import useData from "../../hooks/useData";
+import {useAuth} from "../../contexts/AuthContext";
+import {useNavigation} from "@react-navigation/native";
+import useTypeLines from "../../hooks/useTypeLines";
 
-const TransportationListScreen = ({navigation}) => {
+const TransportationListScreen = ({navigation, route}) => {
 
-    const [data, setData] = useState(favouriteTransportation);
+/*    const [data, setData] = useState(favouriteTransportation);*/
+    const auth = useAuth();
+    const {title, typeNumber} = route && route.params;
 
-    const renderItemAccessory = () => (
-        /*<Svg height='60%' width='30%' viewBox='0 1 100 100'>
-            <Text>{`Air quality: ${props.humidity}`}</Text>
-        </Svg>*/
-        <Card style={{backgroundColor: COLOR_SUCCESS, margin: '-5%', marginRight: '1%'}}>
-            <Text category={'s1'}>Air Quality: 80%</Text>
-        </Card>
-    );
+    const {data, isLoading, isSuccess} = useTypeLines(typeNumber);
 
-    const renderItem = ({item, index}) => (
+
+    useEffect(() => {
+        if(isSuccess) {
+            console.log(data);
+        }
+    }, [isSuccess]);
+
+    const checkType = (item) => {
+        switch (item.type_id) {
+            case 1:
+                return 'Bus';
+            default:
+                return 'unknown';
+        };
+    };
+
+    const renderItemLeftIcon = (item) => {
+        switch (item.type_id) {
+            case 1:
+                return <BusIcon />;
+            default:
+                return < CompassIcon />;
+        };
+    };
+
+    const renderItem = ({item}) => (
         <ListItem
-            title={`${item.title}`}
-            description={`${item.description}`}
-            accessoryLeft={BusIcon}
-            /*accessoryRight={renderItemAccessory}*/
-            onPress={onListItemButtonPress}
+            title={`${checkType(item)} Nr. ${item.number}`}
+            description={`${item.initial_stop} - ${item.final_stop}`}
+            accessoryLeft={renderItemLeftIcon(item)}
+            onPress={() => onItemPress(item)}
         />
     );
 
+    const onItemPress = (item) => {
+
+        navigation && navigation.navigate('Transportation', {
+            id: item.line_id,
+            type: checkType(item),
+            number: item.number,
+            initialStop: item.initial_stop,
+            finalStop: item.final_stop
+        });
+
+    };
+    
+
     const navigateBack = () => {
         navigation.goBack();
-    };
-
-    const onListItemButtonPress = () => {
-        navigation && navigation.navigate('Transportation');
     };
 
     const BackAction = () => (
@@ -64,29 +97,15 @@ const TransportationListScreen = ({navigation}) => {
                 style={styles.titleLabel}
                 category={'h5'}
                 status={'control'}
-            > Buses </Text>
+            > {title} </Text>
         </View>
     );
 
 
     return(
         <SafeAreaView style={styles.screen}>
-
-{/*
-            <TopNavigation title={'BUSES'} style={styles.topNavigationContainer} />
-*/}
             <TopNavigation title={renderTitle} alignment={'center'} status={'control'} accessoryLeft={BackAction} style={styles.topNavigationContainer}/>
-
             <Layout style={styles.container}>
-
-                {/*<View style={styles.favouriteTransportationListContainer}>
-                    <FavouriteTransportationList />
-                </View>*/}
-{/*
-                <View style={styles.header}>
-                    <CompassIcon fill={COLOR_SECONDARY} style={styles.icon} />
-                    <Text style={styles.title} status={'control'} category={'h5'}>Buses:</Text>
-                </View>*/}
 
                 <Divider />
 

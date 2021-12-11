@@ -11,11 +11,11 @@ import TransportButton from "../TransportButton";
 const TransportationTypesRow = ({navigation}) => {
     return(
         <View style={styles.container}>
-            <TransportButton name={'Bus'} icon={BusIcon} onPress={() => {{/*console.warn('Bus Pressed'),*/} navigation.navigate('TransportationList', {title: 'Bus'})}} />
-            <TransportButton name={'Train'} icon={TrainIcon} onPress={() => {console.warn('Train Pressed'), navigation.navigate('TransportList', {title: 'Train'})}} />
-            <TransportButton name={'Tram'} icon={TramIcon} onPress={() => {console.warn('Tram Pressed'), navigation.navigate('TransportList', {title: 'Tram'})}} />
-            <TransportButton name={'Subway'} icon={SubwayIcon} onPress={() => {console.warn('Subway Pressed'), navigation.navigate('TransportList', {title: 'Subway'})}} />
-            <TransportButton name={'Ferry'} icon={FerryIcon} onPress={() => {console.warn('Ferry Pressed'), navigation.navigate('TransportList', {title: 'Ferry'})}} />
+            <TransportButton name={'Bus'} icon={BusIcon} onPress={() => navigation.navigate('TransportationList', {title: 'Buses',typeNumber: 1})} />
+            <TransportButton name={'Train'} icon={TrainIcon} onPress={() => navigation.navigate('TransportationList', {title: 'Trains', typeNumber: 2})} />
+            <TransportButton name={'Tram'} icon={TramIcon} onPress={() => navigation.navigate('TransportationList', {title: 'Trams', typeNumber: 3})} />
+            <TransportButton name={'Subway'} icon={SubwayIcon} onPress={() => navigation.navigate('TransportationList', {title: 'Subways', typeNumber: 4})} />
+            <TransportButton name={'Ferry'} icon={FerryIcon} onPress={() => navigation.navigate('TransportationList', {title: 'Ferries', typeNumber: 5})} />
         </View>
     );
 };

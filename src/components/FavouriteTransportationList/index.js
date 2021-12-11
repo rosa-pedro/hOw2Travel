@@ -6,7 +6,7 @@ import favouriteTransportation from "../../assets/data/favouriteTransportation";
 import BusIcon from "../Icons/BusIcon";
 import StarIcon from "../Icons/StarIcon";
 import {useAuth} from "../../contexts/AuthContext";
-import useFavorites from "../../hooks/useFavorites";
+import {useFavorites} from "../../hooks/useFavorites";
 import CompassIcon from "../Icons/CompassIcon";
 import {useNavigation} from "@react-navigation/native";
 
@@ -15,7 +15,7 @@ const FavouriteTransportationList = () => {
     /*const [data, setData] = useState(favouriteTransportation);*/
 
     const auth = useAuth();
-    const {data, isLoading, isSuccess} = useFavorites(auth.authData[0].email)
+    const {data, isLoading, isSuccess} = useFavorites(auth.authData[0].email);
     const navigation = useNavigation();
 
 
