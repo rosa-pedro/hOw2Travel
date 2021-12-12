@@ -64,7 +64,6 @@ const SearchBar = ({navigation}) => {
             finalStop: transport.final_stop
         });
 
-        clearInput()
     };
 
     const onChangeText = (query) => {
@@ -111,6 +110,7 @@ const SearchBar = ({navigation}) => {
             accessoryLeft={SearchIcon}
             accessoryRight={renderCloseIcon}
             style={styles.container}
+            onBlur={clearInput}
         >
             {list.map(renderOption)}
         </Autocomplete>
