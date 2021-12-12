@@ -36,7 +36,6 @@ const AuthProvider = ({children}) => {
     const signIn = async (email, password) => {
         const _authData = await authService.signIn(email, password);
 
-        console.log('_authData: ' + _authData );
         setAuthData(_authData);
         AsyncStorage.setItem(AuthToken, JSON.stringify(_authData));
 

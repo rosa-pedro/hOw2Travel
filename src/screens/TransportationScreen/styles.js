@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
     },
     rateBar: {
         marginTop: 24,
+        justifyContent: 'center',
     },
     followButton: {
         marginTop: 24,

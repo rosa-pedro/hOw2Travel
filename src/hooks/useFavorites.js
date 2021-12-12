@@ -9,6 +9,14 @@ const fetchFavorites = async (email) => {
 const useFavorites = (email) => useQuery(['favorites', email], () => fetchFavorites(email));
 
 
+const fetchLineFavorites = async (lineId) => {
+    const {data} = await axios.get(`http://193.191.177.75:3300/favourite/all/${lineId}`);
+    return data;
+};
+
+const useLineFavorites = (lineId) => useQuery(['favorites', lineId], () => fetchLineFavorites(lineId));
+
+
 const addFavorite = (email, id) => {
     const queryClient = useQueryClient();
 
@@ -37,4 +45,4 @@ const removeFavorite = (email, id) => {
 };
 
 
-export {useFavorites, addFavorite, removeFavorite};
+export {useFavorites, useLineFavorites, addFavorite, removeFavorite};

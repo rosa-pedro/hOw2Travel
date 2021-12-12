@@ -18,10 +18,10 @@ const RateBar = (props) => {
             key={value}
             style={styles.iconButton}
             appearance={'ghost'}
-            size={'tiny'}
+            size={'medium'}
             status={status}
             accessoryLeft={StarIcon}
-            onPress={() => props.onValueChange(value)}
+            /*onPress={() => props.onValueChange(value)}*/
             />
         );
     };

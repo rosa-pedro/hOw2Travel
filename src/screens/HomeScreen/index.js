@@ -26,6 +26,7 @@ import useFavorites from "../../hooks/useFavorites";
 
 const HomeScreen = ({navigation}) => {
 
+    const auth = useAuth();
     const [menuVisible, setMenuVisible] = useState(false);
 
     const toggleMenu = () => {

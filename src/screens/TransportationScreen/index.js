@@ -24,7 +24,9 @@ import {useAuth} from "../../contexts/AuthContext";
 import axios from "axios";
 import {useMutation, useQueryClient} from "react-query";
 import safeAreaView from "react-native-web/dist/exports/SafeAreaView";
-import {useFavorites, addFavorite, removeFavorite} from "../../hooks/useFavorites";
+import {useFavorites, addFavorite, removeFavorite, useLineFavorites} from "../../hooks/useFavorites";
+import useVehicles from "../../hooks/useVehicles";
+import useTransportationQuality from "../../hooks/useTransportationQuality";
 
 
 const TransportationScreen = ({navigation, route}) => {
@@ -34,20 +36,39 @@ const TransportationScreen = ({navigation, route}) => {
 
     const { data, isLoading, isSuccess} = useDataQuality(id);
     const transportationData = useData(id);
-    const [quality, setQuality] = useState('');
     const favorites = useFavorites(auth.authData[0].email);
+    const lineFavorites = useLineFavorites(id);
+    const vehiclesData = useVehicles(id);
+    const transportationQuality = useTransportationQuality(id);
     const postFavorite = addFavorite(auth.authData[0].email, id);
     const deleteFavorite = removeFavorite(auth.authData[0].email, id);
     const [isFavorite, setIsFavorite] = useState(false);
     const [isDataLoaded, setIsDataLoaded] = useState(false);
     const [date, setDate] = useState('');
+    const [followers, setFollowers] = useState(0);
+    const [vehicles, setVehicles] = useState(0);
+    const [quality, setQuality] = useState(0);
 
     useEffect(() => {
 
-        const myFavorite = favorites.data.find(element => element.line_id === id);
+        if(favorites.isSuccess) {
+            const myFavorite = favorites.data.find(element => element.line_id === id);
 
-        if(myFavorite) {
-            setIsFavorite(true);
+            if(myFavorite) {
+                setIsFavorite(true);
+            }
+        }
+
+        if(lineFavorites.isSuccess) {
+            setFollowers(lineFavorites.data.length);
+        }
+
+        if(vehiclesData.isSuccess) {
+            setVehicles(vehiclesData.data.length);
+        }
+
+        if(transportationQuality.isSuccess) {
+            setQuality(transportationQuality.data.Quality);
         }
 
         setIsDataLoaded(true);
@@ -55,6 +76,7 @@ const TransportationScreen = ({navigation, route}) => {
         return () => {
             setIsFavorite(false);
             setIsDataLoaded(false);
+            setFollowers(0);
         }
     },[]);
 
@@ -133,14 +155,14 @@ const TransportationScreen = ({navigation, route}) => {
                             >
                                 {initialStop} - {finalStop}
                             </Text>
-                            <RateBar
-                                style={styles.rateBar}
-                                hint={'Air Quality'}
-                                value={quality}
-                                onValueChange={setQuality}
-                            />
+
                         </View>
                     </View>
+                    <RateBar
+                        style={styles.rateBar}
+                        hint={'Air Quality'}
+                        value={quality}
+                    />
                     <Button
                         style={styles.followButton}
                         status={!isFavorite ? 'primary' : 'danger'}
@@ -158,7 +180,7 @@ const TransportationScreen = ({navigation, route}) => {
                             <TransportationInfo
                                 style={styles.transportationInfoContainer}
                                 hint={'Followers'}
-                                value={'4'}
+                                value={followers}
                             />
 
                             <TransportationInfo
@@ -169,7 +191,7 @@ const TransportationScreen = ({navigation, route}) => {
                             <TransportationInfo
                                 style={styles.transportationInfoContainer}
                                 hint={'Vehicles'}
-                                value={'1'}
+                                value={vehicles}
                             />
                         </View>
 
