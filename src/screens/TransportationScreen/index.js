@@ -49,14 +49,12 @@ const TransportationScreen = ({navigation, route}) => {
     const [vehicles, setVehicles] = useState(0);
     const [quality, setQuality] = useState(0);
 
+
     useEffect(() => {
 
-        if(favorites.isSuccess) {
-            const myFavorite = favorites.data.find(element => element.line_id === id);
-
-            if(myFavorite) {
-                setIsFavorite(true);
-            }
+        if(transportationData.isSuccess) {
+            const lastDate = new Date(transportationData.data[0].date);
+            setDate(`${lastDate.getDate()}/${lastDate.getMonth() + 1}/${lastDate.getFullYear()}`);
         }
 
         if(lineFavorites.isSuccess) {
@@ -71,24 +69,19 @@ const TransportationScreen = ({navigation, route}) => {
             setQuality(transportationQuality.data.Quality);
         }
 
-        setIsDataLoaded(true);
+        if(favorites.isSuccess) {
+            const myFavorite = favorites.data.find(element => element.line_id === id);
 
-        return () => {
-            setIsFavorite(false);
-            setIsDataLoaded(false);
-            setFollowers(0);
-        }
-    },[]);
-
-
-    useEffect(() => {
-
-        if(transportationData.isSuccess) {
-            const lastDate = new Date(transportationData.data[0].date);
-            setDate(`${lastDate.getDate()}/${lastDate.getMonth() + 1}/${lastDate.getFullYear()}`);
+            if(myFavorite) {
+                setIsFavorite(true);
+            }
         }
 
-    }, [transportationData.isSuccess]);
+        if(transportationData.isSuccess && lineFavorites.isSuccess && vehiclesData.isSuccess && transportationQuality.isSuccess && favorites.isSuccess) {
+            setIsDataLoaded(true);
+        }
+
+    }, [transportationData.isSuccess, lineFavorites.isSuccess, vehiclesData.isSuccess, transportationQuality.isSuccess, favorites.isSuccess]);
 
 
     const onFavoriteButtonPress = () => {
@@ -120,7 +113,7 @@ const TransportationScreen = ({navigation, route}) => {
         navigation.goBack();
     };
 
-    if(isLoading || favorites.isLoading || !isDataLoaded) {
+    if(isLoading || !isDataLoaded) {
         return(
             <SafeAreaView style={styles.screen}>
                 <View style={styles.loading}>
