@@ -21,8 +21,6 @@ import InfoIcon from "../../components/Icons/InfoIcon";
 import PersonIcon from "../../components/Icons/PersonIcon";
 import LogoutIcon from "../../components/Icons/LogoutIcon";
 import {useAuth} from "../../contexts/AuthContext";
-import useLines from "../../hooks/useLines";
-import useFavorites from "../../hooks/useFavorites";
 
 const HomeScreen = ({navigation}) => {
 
@@ -39,7 +37,6 @@ const HomeScreen = ({navigation}) => {
     };
 
     const onLogoutButtonPress = () => {
-        //navigation && navigation.navigate('SignIn');
         auth.signOut();
         toggleMenu()
     };

@@ -24,7 +24,7 @@ const addFavorite = (email, id) => {
         () => axios.post(`http://193.191.177.75:3300/favourite/${email}/${id}`),
         {
             onSuccess: () => {
-                queryClient.invalidateQueries(['favorites', email]);
+                queryClient.invalidateQueries('favorites');
             },
         }
     )
@@ -38,7 +38,7 @@ const removeFavorite = (email, id) => {
         () => axios.delete(`http://193.191.177.75:3300/favourite/${email}/${id}`),
         {
             onSuccess: () => {
-                queryClient.invalidateQueries(['favorites', email]);
+                queryClient.invalidateQueries('favorites');
             },
         }
     )
