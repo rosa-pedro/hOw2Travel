@@ -1,5 +1,5 @@
-import React, {useCallback, useState} from 'react';
-import { Button, CheckBox, Icon, Input, Layout, Text } from "@ui-kitten/components";
+import React, {useCallback, useEffect, useState} from 'react';
+import {Button, Card, CheckBox, Icon, Input, Layout, Modal, Text} from "@ui-kitten/components";
 import { View, TouchableWithoutFeedback } from 'react-native';
 import styles from './styles';
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -15,11 +15,21 @@ const SignUpScreen = ({navigation}) => {
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [termsAccepted, setTermsAccepted] = useState(false);
 
+    const [invalidModalVisible, setInvalidModalVisible] = useState(false);
+    const [successfulModalVisible, setSuccessfulModalVisible] = useState(false);
+
     const auth = useAuth();
 
+    useEffect(() => {
+        return () => {
+            setInvalidModalVisible(false);
+            setSuccessfulModalVisible(false);
+        }
+    }, [])
+
     const onSignUpButtonPress = () => {
-        auth.signUp(username, email, password);
-        navigation && navigation.goBack();
+        auth.signUp(username, email, password).then(() => setSuccessfulModalVisible(true)).catch(() => setInvalidModalVisible(true));
+        //navigation && navigation.goBack();
     };
 
     const onSignInButtonPress = () => {
@@ -98,6 +108,67 @@ const SignUpScreen = ({navigation}) => {
                 >
                     {renderCheckboxLabel}
                 </CheckBox>
+
+
+                <Modal
+                    style={styles.invalidInputModal}
+                    visible={invalidModalVisible}
+                    backdropStyle={styles.backdrop}
+                    onBackdropPress={() => {
+                        setInvalidModalVisible(false);
+                        setUsername('');
+                        setEmail('');
+                        setPassword('');
+                    }}
+                >
+                    <Card
+                        status={'success'}
+                        styles={styles.invalidInputModalCard}
+                        header={<Text category={'h5'} >Sign Up Failed!</Text>}
+                    >
+                        <Text
+                            category={'s1'}
+                        >The account you tried to create already exists. Please try again.</Text>
+                        <Button
+                            style={styles.invalidInputModalButton}
+                            onPress={() => {
+                                setInvalidModalVisible(false);
+                                setUsername('');
+                                setEmail('');
+                                setPassword('');
+                            }}
+                        >
+                            DISMISS
+                        </Button>
+                    </Card>
+                </Modal>
+
+                <Modal
+                    style={styles.invalidInputModal}
+                    visible={successfulModalVisible}
+                    backdropStyle={styles.backdrop}
+                    /*onBackdropPress={() => setSuccessfulModalVisible(false)}*/
+                >
+                    <Card
+                        status={'success'}
+                        styles={styles.invalidInputModalCard}
+                        header={<Text category={'h5'} >Sign Up Successful!</Text>}
+                    >
+                        <Text
+                            category={'s1'}
+                        >Please try now to sign in to your new account.</Text>
+                        <Button
+                            style={styles.invalidInputModalButton}
+                            onPress={() => {
+                                setSuccessfulModalVisible(false);
+                                navigation && navigation.goBack();
+                            }}
+                        >
+                            SIGN IN
+                        </Button>
+                    </Card>
+                </Modal>
+
             </Layout>
             <Button
                 style={styles.signUpButton}

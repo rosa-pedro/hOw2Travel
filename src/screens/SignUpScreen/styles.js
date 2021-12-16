@@ -43,6 +43,16 @@ const styles = StyleSheet.create({
         marginVertical: 12,
         marginHorizontal: 16,
     },
+    invalidInputModal: {
+        paddingHorizontal: '10%',
+    },
+    invalidInputModalCard: {
+        margin: 2,
+    },
+    invalidInputModalButton: {
+        marginTop: '8%',
+        marginHorizontal: '20%',
+    },
 });
 
 export default styles;
