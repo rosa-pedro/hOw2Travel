@@ -12,7 +12,7 @@ const signIn = async (email, password) => {
 
 const signUp = async (username, email, password) => {
 
-    const {data} = await client.get(`/${email}/${password}`);
+    const {data} = await client.get(`/${email}`);
 
     if(data.length !== 0) {
         throw new Error('Email already exists');

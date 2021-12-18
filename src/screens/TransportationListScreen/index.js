@@ -1,40 +1,24 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import styles from './styles';
 import {
-    Avatar,
-    Button, Card,
     Divider,
-    Icon,
-    Layout, List, ListItem, MenuItem,
-    OverflowMenu,
+    Layout, List, ListItem,
     Text,
     TopNavigation,
     TopNavigationAction
 } from "@ui-kitten/components";
 import { View } from 'react-native';
 import {SafeAreaView} from "react-native-safe-area-context";
-import FavouriteTransportationList from "../../components/FavouriteTransportationList";
-import StarIcon from "../../components/Icons/StarIcon";
-import favouriteTransportation from "../../assets/data/favouriteTransportation";
 import BusIcon from "../../components/Icons/BusIcon";
-import {BACKGROUND_COLOR, COLOR_SECONDARY, COLOR_SUCCESS, COLOR_TERTIARY} from "../../assets/theme";
 import CompassIcon from "../../components/Icons/CompassIcon";
 import BackIcon from "../../components/Icons/BackIcon";
-import Svg from "react-native-svg";
-import {useFavorites} from "../../hooks/useFavorites";
-import useData from "../../hooks/useData";
 import {useAuth} from "../../contexts/AuthContext";
-import {useNavigation} from "@react-navigation/native";
 import useTypeLines from "../../hooks/useTypeLines";
 
 const TransportationListScreen = ({navigation, route}) => {
 
-/*    const [data, setData] = useState(favouriteTransportation);*/
-    const auth = useAuth();
     const {title, typeNumber} = route && route.params;
-
     const {data, isLoading, isSuccess} = useTypeLines(typeNumber);
-
 
     useEffect(() => {
         if(isSuccess) {
@@ -80,7 +64,7 @@ const TransportationListScreen = ({navigation, route}) => {
         });
 
     };
-    
+
 
     const navigateBack = () => {
         navigation.goBack();

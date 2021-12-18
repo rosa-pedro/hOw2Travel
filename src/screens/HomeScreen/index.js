@@ -1,10 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import styles from './styles';
 import {
     Avatar,
-    Button,
-    Divider,
-    Icon,
     Layout, MenuItem,
     OverflowMenu,
     Text,

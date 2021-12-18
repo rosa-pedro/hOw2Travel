@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
 import { View } from 'react-native';
-import {Button, Input, Layout, Text, TopNavigation, TopNavigationAction} from '@ui-kitten/components';
+import {Button, Input, Layout, Text} from '@ui-kitten/components';
 import styles from './styles';
 import EmailIcon from "../../components/Icons/EmailIcon";
-import BackIcon from "../../components/Icons/BackIcon";
 import {SafeAreaView} from "react-native-safe-area-context";
 
 

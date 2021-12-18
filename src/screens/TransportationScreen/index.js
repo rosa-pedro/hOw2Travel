@@ -3,15 +3,12 @@ import { View, ScrollView } from 'react-native';
 import {
     Button,
     Divider,
-    Icon,
-    Input,
     Layout, Spinner,
     Text,
     TopNavigation,
     TopNavigationAction
 } from '@ui-kitten/components';
 import styles from './styles';
-import EmailIcon from "../../components/Icons/EmailIcon";
 import BackIcon from "../../components/Icons/BackIcon";
 import {SafeAreaView} from "react-native-safe-area-context";
 import BusIcon from "../../components/Icons/BusIcon";
@@ -21,9 +18,6 @@ import useData from "../../hooks/useData";
 import useDataQuality from "../../hooks/useDataQuality";
 import TransportationInfo from "../../components/TransportationInfo";
 import {useAuth} from "../../contexts/AuthContext";
-import axios from "axios";
-import {useMutation, useQueryClient} from "react-query";
-import safeAreaView from "react-native-web/dist/exports/SafeAreaView";
 import {useFavorites, addFavorite, removeFavorite, useLineFavorites} from "../../hooks/useFavorites";
 import useVehicles from "../../hooks/useVehicles";
 import useTransportationQuality from "../../hooks/useTransportationQuality";

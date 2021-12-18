@@ -29,7 +29,6 @@ const SignUpScreen = ({navigation}) => {
 
     const onSignUpButtonPress = () => {
         auth.signUp(username, email, password).then(() => setSuccessfulModalVisible(true)).catch(() => setInvalidModalVisible(true));
-        //navigation && navigation.goBack();
     };
 
     const onSignInButtonPress = () => {
@@ -147,7 +146,6 @@ const SignUpScreen = ({navigation}) => {
                     style={styles.invalidInputModal}
                     visible={successfulModalVisible}
                     backdropStyle={styles.backdrop}
-                    /*onBackdropPress={() => setSuccessfulModalVisible(false)}*/
                 >
                     <Card
                         status={'success'}

@@ -1,24 +1,16 @@
-import React, {useCallback, useState} from 'react';
+import React, {useState} from 'react';
 import styles from './styles';
 import {
     Button,
-    CheckBox,
-    Divider,
     Icon,
     Input,
     Layout,
     Text,
-    TopNavigation, TopNavigationAction,
-    useStyleSheet
 } from "@ui-kitten/components";
 import { View, TouchableWithoutFeedback } from 'react-native';
 import {SafeAreaView} from "react-native-safe-area-context";
 import PersonIcon from "../../components/Icons/PersonIcon";
-import PlusIcon from "../../components/Icons/PlusIcon";
-import ProfileAvatar from "../../components/ProfileAvatar";
 import EmailIcon from "../../components/Icons/EmailIcon";
-import MenuIcon from "../../components/Icons/MenuIcon";
-import BackIcon from "../../components/Icons/BackIcon";
 
 const EditProfileScreen = ({navigation}) => {
 

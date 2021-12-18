@@ -29,8 +29,6 @@ const styles = StyleSheet.create({
     },
     topNavigationContainer: {
         backgroundColor: COLOR_SUCCESS,
-/*        paddingLeft: '5%',
-        paddingTop: '5%',*/
     },
     menuContainer: {
         marginTop: 5,

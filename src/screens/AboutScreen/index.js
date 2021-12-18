@@ -1,17 +1,11 @@
-import React, {useState} from 'react';
-import { View } from 'react-native';
-import {Button, Input, Layout, Text, TopNavigation, TopNavigationAction} from '@ui-kitten/components';
+import React from 'react';
+import { View, Image } from 'react-native';
+import {Button, Layout, Text} from '@ui-kitten/components';
 import styles from './styles';
-import EmailIcon from "../../components/Icons/EmailIcon";
-import BackIcon from "../../components/Icons/BackIcon";
 import {SafeAreaView} from "react-native-safe-area-context";
 
 
 const AboutScreen = ({navigation}) => {
-
-    const onResetPasswordButtonPress = () => {
-        navigation && navigation.goBack();
-    }
 
     const onGoBackButtonPress = () => {
         navigation && navigation.goBack();
@@ -27,25 +21,67 @@ const AboutScreen = ({navigation}) => {
                         category={'h1'}
                         status={'control'}
                     >
-                        INFO SCREEN
+                        ABOUT
                     </Text>
                     <Text
                         style={styles.enterEmailLabel}
                         category={'s1'}
                         status={'control'}
                     >
-                        Info about the App
+                        High-grade project by the amazing Group 2 students:
                     </Text>
+                    <Text
+                        category={'s1'}
+                        status={'control'}
+                    >
+                        Pedro Rosa
+                    </Text>
+                    <Text
+                        category={'s1'}
+                        status={'control'}
+                    >
+                        Hysa Alcântara
+                    </Text>
+                    <Text
+                        category={'s1'}
+                        status={'control'}
+                    >
+                        Sander Verbeken
+                    </Text>
+                    <Text
+                        category={'s1'}
+                        status={'control'}
+                    >
+                        Karabo Madiba
+                    </Text>
+                    <Text
+                        style={styles.enterEmailLabel}
+                        category={'s1'}
+                        status={'control'}
+                    >
+                        and a special thanks for helping Sander's cat.
+                    </Text>
+                </View>
+
+                <View
+                style={styles.imageContainer}>
+
+                    <Image
+                        style={styles.image}
+                        resizeMode={'contain'}
+                        source={require('../../assets/images/sander_cat.jpg')}
+                    />
+
                 </View>
 
 
                 <Button
-                    style={styles.resetPasswordButton}
+                    style={styles.backButton}
                     size='giant'
                     status={'success'}
-                    onPress={onResetPasswordButtonPress}
+                    onPress={onGoBackButtonPress}
                 >
-                    INFORMED
+                    GO BACK
                 </Button>
 
             </Layout>

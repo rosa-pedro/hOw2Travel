@@ -1,5 +1,5 @@
 import {StyleSheet} from "react-native";
-import {BACKGROUND_COLOR, COLOR_SUCCESS, TEXT_HINT_COLOR} from "../../assets/theme";
+import {BACKGROUND_COLOR, COLOR_SUCCESS} from "../../assets/theme";
 
 const styles = StyleSheet.create({
     screen: {

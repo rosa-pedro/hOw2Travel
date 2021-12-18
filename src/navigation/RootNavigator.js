@@ -1,11 +1,5 @@
 import React from 'react';
-import {createDrawerNavigator} from "@react-navigation/drawer";
 import HomeScreen from "../screens/HomeScreen";
-import DetailsScreen from "../screens/DetailsScreen";
-import MenuDrawerContent from "../components/MenuDrawerContent";
-import TransportListScreen from "../screens/TransportListScreen";
-import SignInScreen from "../screens/SignInScreen";
-import SignUpScreen from "../screens/SignUpScreen";
 import EditProfileScreen from "../screens/EditProfileScreen";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import AboutScreen from "../screens/AboutScreen";
@@ -18,7 +12,6 @@ const HomeNavigator = () => {
     return (
         <Navigator screenOptions={{ headerShown: false }}>
             <Screen name={'Home'} component={HomeScreen} />
-            <Screen name={'TransportList'} component={TransportListScreen} />
             <Screen name={'EditProfile'} component={EditProfileScreen} />
             <Screen name={'About'} component={AboutScreen} />
             <Screen name={'TransportationList'} component={TransportationListScreen} />

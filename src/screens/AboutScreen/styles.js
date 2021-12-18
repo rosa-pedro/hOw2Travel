@@ -8,11 +8,13 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
+        /*backgroundColor: 'red',*/
+        /*justifyContent: 'space-between'*/
     },
     headerContainer: {
         justifyContent: 'center',
         alignItems: 'center',
-        minHeight: 216,
+        minHeight: 275,
         backgroundColor: COLOR_SUCCESS,
     },
     formContainer: {
@@ -21,15 +23,25 @@ const styles = StyleSheet.create({
         paddingHorizontal: 16,
     },
     enterEmailLabel: {
-        marginTop: 16,
+        marginVertical: 16,
     },
     resetPasswordButton: {
         marginHorizontal: 16,
     },
     backButton: {
-        marginVertical: 12,
+        marginBottom: 24,
         marginHorizontal: 16,
     },
+    imageContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: '5%',
+    },
+    image: {
+        height: '100%',
+        width: '100%',
+    }
 });
 
 export default styles;

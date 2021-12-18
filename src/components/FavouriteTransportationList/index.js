@@ -1,8 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import { View } from 'react-native';
-import {Button, Divider, List, ListItem, Text} from "@ui-kitten/components";
+import {Divider, List, ListItem, Text} from "@ui-kitten/components";
 import styles from "./styles";
-import favouriteTransportation from "../../assets/data/favouriteTransportation";
 import BusIcon from "../Icons/BusIcon";
 import StarIcon from "../Icons/StarIcon";
 import {useAuth} from "../../contexts/AuthContext";
@@ -11,8 +10,6 @@ import CompassIcon from "../Icons/CompassIcon";
 import {useNavigation} from "@react-navigation/native";
 
 const FavouriteTransportationList = () => {
-
-    /*const [data, setData] = useState(favouriteTransportation);*/
 
     const auth = useAuth();
     const {data, isLoading, isSuccess} = useFavorites(auth.authData[0].email);
