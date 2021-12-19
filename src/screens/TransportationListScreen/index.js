@@ -85,17 +85,22 @@ const TransportationListScreen = ({navigation, route}) => {
         </View>
     );
 
+    const renderEmptyList = () => (
+        <View style={styles.emptyListContainer}>
+            <Text>
+                No Transport
+            </Text>
+        </View>
+    );
 
     return(
         <SafeAreaView style={styles.screen}>
             <TopNavigation title={renderTitle} alignment={'center'} status={'control'} accessoryLeft={BackAction} style={styles.topNavigationContainer}/>
             <Layout style={styles.container}>
-
-                <Divider />
-
                 <List
                     data={data}
                     renderItem={renderItem}
+                    ListEmptyComponent={renderEmptyList}
                 />
 
             </Layout>

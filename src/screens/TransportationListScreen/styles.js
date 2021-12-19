@@ -46,6 +46,12 @@ const styles = StyleSheet.create({
         flex: 7,
         backgroundColor: COLOR_SECONDARY,
     },
+    emptyListContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingTop: '75%',
+    },
 });
 
 export default styles;

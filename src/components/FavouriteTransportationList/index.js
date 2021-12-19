@@ -55,6 +55,14 @@ const FavouriteTransportationList = () => {
 
     };
 
+    const renderEmptyList = () => (
+        <View style={styles.emptyListContainer}>
+            <Text>
+                No Transport
+            </Text>
+        </View>
+    );
+
     return(
         <View style={styles.container}>
 
@@ -69,6 +77,7 @@ const FavouriteTransportationList = () => {
                 <List
                     data={data}
                     renderItem={renderItem}
+                    ListEmptyComponent={renderEmptyList}
                 />
             )}
 

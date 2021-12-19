@@ -16,6 +16,12 @@ const styles = StyleSheet.create({
     title: {
         paddingLeft: 8,
     },
+    emptyListContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingTop: '40%'
+    },
 });
 
 export default styles;
