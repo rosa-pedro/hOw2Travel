@@ -20,12 +20,6 @@ const TransportationListScreen = ({navigation, route}) => {
     const {title, typeNumber} = route && route.params;
     const {data, isLoading, isSuccess} = useTypeLines(typeNumber);
 
-    useEffect(() => {
-        if(isSuccess) {
-            console.log(data);
-        }
-    }, [isSuccess]);
-
     const checkType = (item) => {
         switch (item.type_id) {
             case 1:
